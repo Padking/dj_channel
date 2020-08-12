@@ -2,7 +2,7 @@ from django.db import connection
 
 # Запрос для получения каналов из БД, у которых есть подписчики (хотя бы один)
 Q_1 = """
-    SELECT DISTINCT ch_id AS chnl
+    SELECT DISTINCT ch_id AS chnl, username_ch AS username
     FROM channel JOIN ch_subscr
     USING(ch_id)
     """
@@ -10,7 +10,7 @@ Q_1 = """
 # Запрос для получения подписчиков, которые состоят как минимум в 2-ух каналах,
 # предварительно выбранных пользователем django-приложения
 Q_2 = """
-    SELECT subscr_id AS user, GROUP_CONCAT(ch_id) AS channels
+    SELECT subscr_id AS user, GROUP_CONCAT(username_ch, ", ") AS channels
     FROM ch_subscr JOIN (
         SELECT subscr_id, COUNT(subscr_id) AS Встречаемость_подписчика
         FROM ch_subscr

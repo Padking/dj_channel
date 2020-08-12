@@ -16,7 +16,7 @@
         <p>
             <b>Выберите один или несколько Telegram-каналов:</b><br><br>
             {% for tg in telegram %}
-            <input type="checkbox" name="chnls" value="{{ tg.chnl }}">{{ tg.chnl }}<br><br>
+            <input type="checkbox" name="chnls" value="{{ tg.chnl }}">{{ tg.username }}<br><br>
             {% endfor %}
             <button type="submit">Отправить</button>
         </p>

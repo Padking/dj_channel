@@ -1,0 +1,44 @@
+{% extends "base_choice.html" %}
+
+{% block title %}
+<title>
+    Результат выбора
+</title>
+{% endblock %}
+
+{% block style %}
+<style>
+        .tables_caption {
+        color: crimson;
+        font-size: 14pt;
+        margin-bottom: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div>
+    <table border="1" width="550">
+        <caption class="tables_caption"><b>Пользователи хотя бы двух Telegram-каналов</b></caption>
+        <thead>
+            <tr>
+                <th>Пользователь</th>
+                <th>Каналы</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td align="center" colspan="2"><a href="tg://resolve?domain=pardo8" target="_blank">Связаться с разработчиком</a></td>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for tg in telegram %}
+            <tr>
+                <td align="center">{{ tg.user }}</td>
+                <td>{{ tg.channels }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

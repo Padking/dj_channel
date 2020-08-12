@@ -1,0 +1,25 @@
+{% extends "base_choice.html" %}
+
+{% block title %}
+<title>
+    Выбор Telegram-каналов
+</title>
+{% endblock %}
+
+{% block style %}
+{% endblock %}
+
+{% block content %}
+<div>
+    <form name="test" method="POST">
+        {% csrf_token %}
+        <p>
+            <b>Выберите один или несколько Telegram-каналов:</b><br><br>
+            {% for tg in telegram %}
+            <input type="checkbox" name="chnls" value="{{ tg.chnl }}">{{ tg.chnl }}<br><br>
+            {% endfor %}
+            <button type="submit">Отправить</button>
+        </p>
+    </form>
+</div>
+{% endblock %}

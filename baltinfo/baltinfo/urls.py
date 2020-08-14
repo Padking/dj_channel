@@ -20,7 +20,8 @@ from django.views.generic import RedirectView
 from baltapp import views
 
 urlpatterns = [
-    path('', RedirectView.as_view(url='userschannels/', permanent=True)),
+    path('', RedirectView.as_view(url='set_channels/', permanent=True)),
     path('admin/', admin.site.urls),
-    path('userschannels/', include("baltapp.urls")),
+    path('set_channels/', views.set_channels, name="first_page"),
+    path('userschannels/', views.userschannels, name="index"),
 ]

@@ -1,4 +1,4 @@
-SELECT subscr_id AS user, GROUP_CONCAT(ch_id) AS channels --|| " " AS channels
+SELECT full_name AS user, GROUP_CONCAT(username_ch, ", ") AS channels --|| " " AS channels
 FROM ch_subscr JOIN (
 	SELECT subscr_id, COUNT(subscr_id) AS Встречаемость_подписчика_в_таблице
 	FROM ch_subscr

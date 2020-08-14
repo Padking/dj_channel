@@ -1,5 +1,7 @@
 {% extends "base_choice.html" %}
 
+{% load to_empty %}
+
 {% block title %}
 <title>
     Результат выбора
@@ -35,10 +37,14 @@
             {% for tg in telegram %}
             <tr>
                 <td align="center">{{ tg.user }}</td>
-                <td>{{ tg.channels }}</td>
+                <td>{{ tg.channels|to_empty }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    <br>
+    <form>
+        <input type="button" value="В начало" onclick="javascript:window.location='http://44ec43aa-2e14-4ff1-ada3-d1b2e4418b0e.pub.cloud.scaleway.com:8003/set_channels/'"/>
+    </form>
 </div>
 {% endblock %}

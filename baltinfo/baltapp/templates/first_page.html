@@ -1,0 +1,23 @@
+{% extends "base_choice.html" %}
+
+{% block title %}
+<title>
+    Внешние условия
+</title>
+{% endblock %}
+
+{% block style %}
+{% endblock %}
+
+{% block content %}
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form }}
+        </table>
+        <br>
+        <button type="submit">Далее</button>
+    </form>
+</div>
+{% endblock %}
